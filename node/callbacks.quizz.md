@@ -5,11 +5,19 @@ The below code errors when you run it.
 Make it run without errors but you cannot change the location of the `let` statement, that has to stay at the end.
 
 ```js
+let i = 0;
 function doAsyncTask(cb) {
-  cb();
+  setImmediate(_ => {
+    console.log("calling callback");
+    cb();
+    i++;
+    console.log("i has been increased now: " + i);
+  });
+  console.log("should display before callback");
 }
 doAsyncTask(_ => console.log(message));
 
+console.log("waiting for i to increment...Curent vallue of i is still " + i);
 let message = "Callback Called";
 ```
 
