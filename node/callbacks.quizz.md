@@ -15,9 +15,10 @@ function doAsyncTask(cb) {
   });
   console.log("should display before callback");
 }
+console.log("waiting for i to increment...Curent vallue of i is still " + i);
+
 doAsyncTask(_ => console.log(message));
 
-console.log("waiting for i to increment...Curent vallue of i is still " + i);
 let message = "Callback Called";
 ```
 
